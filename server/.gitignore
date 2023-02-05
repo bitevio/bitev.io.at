@@ -1,0 +1,11 @@
+
+node_modules
+package-lock.json
+rest
+/core
+/core/node_modules
+.VSCODE
+/uploads/*
+!/uploads/.gitkeep 
+.DS_Store
+.env.prod

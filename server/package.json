@@ -1,0 +1,39 @@
+{
+  "name": "bitev.io.cms",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "sync": "npx prisma generate",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx prisma generate && node bitev.config.js",
+    "dev": "nodemon",
+    "local":"dotenv -e ./.env.prod  nodemon",
+    "update": "npx bitev.io@latest update"
+  },
+  "dependencies": {
+    "bitev.io": "^2.2.9",
+    "nodemon": "*"
+  },
+  "devDependencies": {
+    "@prisma/client": "^4.9.0",
+    "prisma": "^4.9.0",
+    "prisma-json-schema-generator": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=14",
+    "yarn": ">=1.22 <2"
+  },
+  "maintainers": [
+    {
+      "name": "Bitev CMS",
+      "email": "dev@bitev.io",
+      "url": "https://cms.bitev.io"
+    }
+  ],
+  "homepage": "https://bitev.io",
+  "repository": {
+    "url": "https://github.com/bitevio/bitev.io"
+  },
+  "author": "dev@bitev.io",
+  "license": "MIT"
+}

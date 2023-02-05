@@ -1,0 +1,14 @@
+{
+  "verbose":false,
+  "exec": "npx prisma generate && node bitev.config.js",
+  "watch":[
+    "./providers/",
+    ".env",
+    "./.tmp/.pid",
+    "./extensions/",
+    "./database/",
+    ".env.prod"
+  ],
+  "ignore": ["README",".git","node_modules/**/node_modules"],
+  "ext":"js,env,pid"
+}

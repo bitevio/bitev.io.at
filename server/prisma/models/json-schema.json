@@ -90,6 +90,338 @@
         }
       }
     },
+    "controls": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "employee": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/employees"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "employees"
+        },
+        "datetime": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "action": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "originalType": "Json"
+        },
+        "device": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/devices"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "devices"
+        },
+        "function_code": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/function_codes"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "function_codes"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "departments": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "devices": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "code": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "originalType": "Float"
+        },
+        "password": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "controls": {
+          "type": "array",
+          "originalType": "controls",
+          "items": {
+            "$ref": "#/definitions/controls"
+          }
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "employees": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "last_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Roles"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "Roles"
+        },
+        "facials": {
+          "type": "array",
+          "originalType": "Json",
+          "items": {
+            "type": [
+              "number",
+              "string",
+              "boolean",
+              "object",
+              "array",
+              "null"
+            ]
+          }
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "password": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "controls": {
+          "type": "array",
+          "originalType": "controls",
+          "items": {
+            "$ref": "#/definitions/controls"
+          }
+        },
+        "planning": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/planning"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "planning"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "function_codes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "colour": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "finish": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "originalType": "Boolean",
+          "default": false
+        },
+        "controls": {
+          "type": "array",
+          "originalType": "controls",
+          "items": {
+            "$ref": "#/definitions/controls"
+          }
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
     "Medias": {
       "type": "object",
       "properties": {
@@ -179,6 +511,119 @@
         }
       }
     },
+    "planning": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "start_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "end_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "employees": {
+          "type": "array",
+          "originalType": "employees",
+          "items": {
+            "$ref": "#/definitions/employees"
+          }
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "rate_classes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "rate": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "originalType": "Float"
+        },
+        "colour": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
     "Roles": {
       "type": "object",
       "properties": {
@@ -210,6 +655,13 @@
             "null"
           ],
           "originalType": "Json"
+        },
+        "employees": {
+          "type": "array",
+          "originalType": "employees",
+          "items": {
+            "$ref": "#/definitions/employees"
+          }
         },
         "createdAt": {
           "type": [
@@ -300,6 +752,89 @@
             "null"
           ],
           "originalType": "String"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "timetables": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "days_of_week": {
+          "type": "array",
+          "originalType": "Json",
+          "items": {
+            "type": [
+              "number",
+              "string",
+              "boolean",
+              "object",
+              "array",
+              "null"
+            ]
+          }
+        },
+        "start_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "end_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "day_lag": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "originalType": "Float",
+          "default": 0
+        },
+        "included": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "originalType": "Boolean",
+          "default": false
         },
         "createdAt": {
           "type": [
@@ -449,14 +984,38 @@
     "marketplaces_local": {
       "$ref": "#/definitions/marketplaces_local"
     },
+    "controls": {
+      "$ref": "#/definitions/controls"
+    },
+    "departments": {
+      "$ref": "#/definitions/departments"
+    },
+    "devices": {
+      "$ref": "#/definitions/devices"
+    },
+    "employees": {
+      "$ref": "#/definitions/employees"
+    },
+    "function_codes": {
+      "$ref": "#/definitions/function_codes"
+    },
     "medias": {
       "$ref": "#/definitions/Medias"
+    },
+    "planning": {
+      "$ref": "#/definitions/planning"
+    },
+    "rate_classes": {
+      "$ref": "#/definitions/rate_classes"
     },
     "roles": {
       "$ref": "#/definitions/Roles"
     },
     "settings": {
       "$ref": "#/definitions/Settings"
+    },
+    "timetables": {
+      "$ref": "#/definitions/timetables"
     },
     "users": {
       "$ref": "#/definitions/Users"

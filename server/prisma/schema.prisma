@@ -35,6 +35,71 @@
 
 
   
+    model controls {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      employee employees?    @relation(fields:[employeeId],references:[id])
+             employeeId String? @db.ObjectId 
+               
+      datetime String?     
+      action Json?     
+      device devices?    @relation(fields:[deviceId],references:[id])
+             deviceId String? @db.ObjectId 
+               
+      function_code function_codes?    @relation(fields:[function_codeId],references:[id])
+             function_codeId String? @db.ObjectId 
+                
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model departments {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      name String?     
+      description String?      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model devices {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      name String?     
+      code Float?     
+      password String?     
+      controls controls[]      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model employees {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      first_name String?     
+      last_name String?     
+      role Roles?    @relation(fields:[roleId],references:[id])
+             roleId String? @db.ObjectId 
+               
+      facials Json[]     
+      email String?     @unique
+      password String?     
+      controls controls[]     
+      planning planning?    @relation(fields:[planningId],references:[id])
+             planningId String? @db.ObjectId 
+                
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model function_codes {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      name String?     
+      code String?     
+      description String?     
+      colour String?     
+      finish Boolean?   @default(false)  
+      controls controls[]      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
     model Medias {
       id String @id @default(auto()) @map("_id") @db.ObjectId
       ref String?     
@@ -49,11 +114,33 @@
       updatedAt DateTime? @updatedAt
    }
     
+    model planning {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      name String?     
+      code String?     @unique
+      start_date String?     
+      end_date String?     
+      employees employees[]      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model rate_classes {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      code String?     
+      name String?     
+      rate Float?     
+      colour String?      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
     model Roles {
       id String @id @default(auto()) @map("_id") @db.ObjectId
       name String?     @unique
       description String?     
-      permissions Json?      
+      permissions Json?     
+      employees employees[]      
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }
@@ -68,6 +155,19 @@
       public_note String?     
       activity Boolean?   @default(false)  
       mapbox_token String?      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model timetables {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      name String?     
+      description String?     
+      days_of_week Json[]     
+      start_time String?     
+      end_time String?     
+      day_lag Float?   @default(0)  
+      included Boolean?   @default(false)   
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }

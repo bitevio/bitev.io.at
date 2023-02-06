@@ -5,93 +5,102 @@ const {
 module.exports = Collection({
     "activeTask": false,
     "singleType": false,
-    "hidden": true,
+    "hidden": false,
     "mode": "model",
-    "slug": "Webhooks",
+    "slug": "rate_classes",
     "timestamps": true,
     "auth": {
         "enabled": false,
         "by": "email"
     },
     "admin": {
-        "timestampsFormat": "YYYY-MM-DD HH:mm:ss"
+        "label": "Rate classes",
+        "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
         "admin": {
+            "label": "Code",
             "sortable": false,
             "readonly": false,
             "hidden": false,
-            "required": false
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
+        "name": "code",
+        "type": "string",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
+    }, {
+        "admin": {
+            "label": "Name",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
         },
         "name": "name",
         "type": "string",
-        "unique": true,
-        "hasMany": false,
-        "linked": true,
-        "required": false,
-        "relationType": "one-to-many",
-        "private": false
-    }, {
-        "admin": {
-            "sortable": false,
-            "readonly": false,
-            "hidden": false,
-            "required": false
-        },
-        "name": "status",
-        "type": "select",
         "unique": false,
         "hasMany": false,
         "linked": true,
         "required": false,
         "relationType": "one-to-many",
-        "private": false
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
     }, {
         "admin": {
+            "label": "Rate",
             "sortable": false,
             "readonly": false,
             "hidden": false,
-            "required": false
+            "required": false,
+            "displayTemplate": "${item.id}"
         },
-        "name": "method",
-        "type": "select",
+        "name": "rate",
+        "type": "number",
         "unique": false,
         "hasMany": false,
         "linked": true,
         "required": false,
-        "options": ["get", "post"],
         "relationType": "one-to-many",
-        "private": false
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
     }, {
         "admin": {
+            "label": "Colour",
             "sortable": false,
             "readonly": false,
             "hidden": false,
-            "required": false
+            "required": false,
+            "displayTemplate": "${item.id}"
         },
-        "name": "actions",
-        "type": "select",
+        "name": "colour",
+        "type": "colour",
         "unique": false,
-        "hasMany": true,
-        "linked": true,
-        "required": false,
-        "options": ["create", "update", "delete"],
-        "relationType": "one-to-many",
-        "private": false
-    }, {
-        "admin": {
-            "sortable": false,
-            "readonly": false,
-            "hidden": false,
-            "required": false
-        },
-        "name": "collections",
-        "type": "select",
-        "unique": false,
-        "hasMany": true,
+        "hasMany": false,
         "linked": true,
         "required": false,
         "relationType": "one-to-many",
-        "private": false
-    }]
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
+    }],
+    "behavior": "basic"
 })

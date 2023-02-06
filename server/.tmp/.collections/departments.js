@@ -7,44 +7,58 @@ module.exports = Collection({
     "singleType": false,
     "hidden": false,
     "mode": "model",
-    "slug": "Users",
+    "slug": "departments",
     "timestamps": true,
     "auth": {
         "enabled": false,
         "by": "email"
     },
     "admin": {
-        "timestampsFormat": "YYYY-MM-DD HH:mm:ss"
+        "label": "Departments",
+        "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
         "admin": {
+            "label": "Name",
             "sortable": false,
             "readonly": false,
             "hidden": false,
-            "required": false
+            "required": false,
+            "displayTemplate": "${item.id}"
         },
-        "name": "email",
+        "name": "name",
         "type": "string",
         "unique": false,
         "hasMany": false,
         "linked": true,
         "required": false,
         "relationType": "one-to-many",
-        "private": false
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
     }, {
         "admin": {
+            "label": "Description",
             "sortable": false,
             "readonly": false,
             "hidden": false,
-            "required": false
+            "required": false,
+            "displayTemplate": "${item.id}"
         },
-        "name": "password",
-        "type": "string",
+        "name": "description",
+        "type": "textarea",
         "unique": false,
         "hasMany": false,
         "linked": true,
         "required": false,
         "relationType": "one-to-many",
-        "private": false
-    }]
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
+    }],
+    "behavior": "basic"
 })

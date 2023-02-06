@@ -3,214 +3,153 @@ const {
 } = require("bitev.io/types");
 
 module.exports = Collection({
-    "icon": null,
+    "activeTask": false,
     "singleType": false,
     "hidden": false,
-    "slug": "planning",
     "mode": "model",
+    "slug": "planning",
     "timestamps": true,
-    "behavior": "basic",
     "auth": {
         "enabled": false,
         "by": "email"
-    },
-    "calendar": {
-        "startField": "",
-        "endField": ""
     },
     "admin": {
         "label": "Planning",
         "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
+        "admin": {
+            "label": "Name",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "name",
         "type": "string",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Name",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
+        "admin": {
+            "label": "Code",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "code",
         "type": "string",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": true,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Code",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
+        "admin": {
+            "label": "Start date",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "start_date",
         "type": "date",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Start date",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
+        "admin": {
+            "label": "End date",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "end_date",
         "type": "date",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "End date",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
-        "name": "employees",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "employees",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": true,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "planning",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "",
-            "mapLabel": "",
             "label": "Employees",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false
+        },
+        "name": "employees",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": true,
+        "relationTo": "employees",
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "relationSideName": "planning",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "employees"
     }, {
-        "name": "model",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "timesheets_models",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "plannings",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
             "label": "Model",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
+        "name": "model",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "timesheets_models",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "plannings",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "model"
-    }]
+    }],
+    "behavior": "basic"
 })

@@ -148,5 +148,17 @@ module.exports = Collection({
             "suffix": null,
             "prefix": null
         }
+    }, {
+        "name": "plannings",
+        "type": "relationship",
+        "linked": false,
+        "relationTo": "planning",
+        "hasMany": true,
+        "unique": false,
+        "relationType": "one-to-many",
+        "onSideRelation": true,
+        "relationSideName": "model",
+        "self": false,
+        "selfName": "model"
     }]
 })

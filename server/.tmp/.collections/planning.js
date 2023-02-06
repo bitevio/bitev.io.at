@@ -179,5 +179,38 @@ module.exports = Collection({
         },
         "self": false,
         "selfName": "employees"
+    }, {
+        "name": "model",
+        "type": "relationship",
+        "options": [],
+        "relationTo": "timesheets_models",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "many-to-one",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "plannings",
+        "computedFx": {
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "${item.id}",
+            "mapLabel": "",
+            "label": "Model",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        },
+        "self": false,
+        "selfName": "model"
     }]
 })

@@ -10,7 +10,7 @@ module.exports = Collection({
     "slug": "employees",
     "timestamps": true,
     "auth": {
-        "enabled": false,
+        "enabled": true,
         "by": "email"
     },
     "admin": {
@@ -148,27 +148,43 @@ module.exports = Collection({
             "active": true
         }
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "controls",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "controls",
-        "hasMany": true,
         "unique": false,
+        "hasMany": true,
+        "relationTo": "controls",
+        "linked": false,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": true,
         "relationSideName": "employee",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "employee"
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "planning",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "planning",
-        "hasMany": false,
         "unique": false,
+        "hasMany": false,
+        "relationTo": "planning",
+        "linked": false,
+        "required": false,
         "relationType": "many-to-one",
-        "onSideRelation": true,
         "relationSideName": "employees",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "employees"
     }],

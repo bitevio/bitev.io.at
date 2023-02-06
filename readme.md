@@ -1,7 +1,7 @@
 
 ## Start Attendance Panel
 
-### Install all Dependencies
+#### Install all Dependencies
 ```js
 cd /web 
 npm i
@@ -11,14 +11,14 @@ npm i
 
 ```js
 cd /web
-npm ruun start
+npm run start
 ```
 
 
 
 ## Start Attendance Server
 
-### Install all Dependencies
+#### Install all Dependencies
 ```js
 cd /server
 npm i

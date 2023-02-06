@@ -3,10 +3,11 @@ const bitev = new Bitev();
 
 
 
+
 //
 
 bitev.init({
-  port:5009,
+  port:process.env.PORT,
   debug: true,
   express: {
   

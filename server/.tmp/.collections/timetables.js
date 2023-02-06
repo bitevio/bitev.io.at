@@ -212,15 +212,23 @@ module.exports = Collection({
             "needs": ["start_time", "end_time", "day_lag", "days_of_week", "included"]
         }
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "timesheets_model",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "timesheets_models",
-        "hasMany": false,
         "unique": false,
+        "hasMany": false,
+        "relationTo": "timesheets_models",
+        "linked": false,
+        "required": false,
         "relationType": "many-to-one",
-        "onSideRelation": true,
         "relationSideName": "timetables",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "timetables"
     }],

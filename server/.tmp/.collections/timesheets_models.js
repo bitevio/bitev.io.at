@@ -3,162 +3,130 @@ const {
 } = require("bitev.io/types");
 
 module.exports = Collection({
-    "icon": null,
+    "activeTask": false,
     "singleType": false,
     "hidden": false,
-    "slug": "timesheets_models",
     "mode": "model",
+    "slug": "timesheets_models",
     "timestamps": true,
-    "behavior": "basic",
     "auth": {
         "enabled": false,
         "by": "email"
-    },
-    "calendar": {
-        "startField": "",
-        "endField": ""
     },
     "admin": {
         "label": "Timesheets models",
         "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
+        "admin": {
+            "label": "Name",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "name",
         "type": "string",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Name",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
-        "name": "timetables",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "timetables",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": true,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "timesheets_model",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return `${item.length} Sélectionnés`",
-            "mapLabel": "",
             "label": "Timetables",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return `${item.length} Sélectionnés`"
+        },
+        "name": "timetables",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": true,
+        "relationTo": "timetables",
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "relationSideName": "timesheets_model",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "timetables"
     }, {
+        "admin": {
+            "label": "Total time",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "total_time",
         "type": "computed",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
             "active": true,
             "fx": "var total_time = 0;\nfor (let timetable of item.timetables) {\n    total_time += timetable.total_time;\n}\n\nreturn total_time;",
             "needs": ["timetables"]
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Total time",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
         }
     }, {
+        "admin": {
+            "label": "Description",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "description",
         "type": "textarea",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Description",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "plannings",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "planning",
-        "hasMany": true,
         "unique": false,
+        "hasMany": true,
+        "relationTo": "planning",
+        "linked": false,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": true,
         "relationSideName": "model",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "model"
-    }]
+    }],
+    "behavior": "basic"
 })

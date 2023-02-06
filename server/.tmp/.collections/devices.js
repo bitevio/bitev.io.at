@@ -81,15 +81,23 @@ module.exports = Collection({
             "active": true
         }
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "controls",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "controls",
-        "hasMany": true,
         "unique": false,
+        "hasMany": true,
+        "relationTo": "controls",
+        "linked": false,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": true,
         "relationSideName": "device",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "device"
     }],

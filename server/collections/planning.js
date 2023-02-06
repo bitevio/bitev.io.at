@@ -150,6 +150,37 @@ module.exports = Collection({
         },
         "self": false,
         "selfName": "model"
+    }, {
+        "name": "expired",
+        "type": "computed",
+        "options": [],
+        "relationTo": "",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "one-to-many",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "",
+        "computedFx": {
+            "active": true,
+            "fx": "return moment().isAfter(item.end_date) || false",
+            "needs": ["start_date", "end_date"]
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Expired",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        }
     }],
     "behavior": "basic"
 })

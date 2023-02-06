@@ -3,92 +3,81 @@ const {
 } = require("bitev.io/types");
 
 module.exports = Collection({
-    "icon": null,
+    "activeTask": false,
     "singleType": false,
     "hidden": false,
-    "slug": "controls",
     "mode": "model",
+    "slug": "controls",
     "timestamps": true,
-    "behavior": "basic",
     "auth": {
         "enabled": false,
         "by": "email"
-    },
-    "calendar": {
-        "startField": "",
-        "endField": ""
     },
     "admin": {
         "label": "Controls",
         "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
-        "name": "employee",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "employees",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "controls",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Employee",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "employee",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "employees",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "controls",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "employee"
     }, {
-        "name": "datetime",
-        "type": "datetime-local",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
             "label": "Datetime",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
+        "name": "datetime",
+        "type": "datetime-local",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         }
     }, {
+        "admin": {
+            "label": "Action",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "${item.id}"
+        },
         "name": "action",
         "type": "select",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
         "options": [{
             "label": "Départ",
             "value": "departure"
@@ -96,98 +85,62 @@ module.exports = Collection({
             "label": "Arrivée",
             "value": "arrival"
         }],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Action",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
-        "name": "device",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "devices",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "controls",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Device",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "device",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "devices",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "controls",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "device"
     }, {
-        "name": "function_code",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "function_codes",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "controls",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Function code",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "function_code",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "function_codes",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "controls",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "function_code"
-    }]
+    }],
+    "behavior": "basic"
 })

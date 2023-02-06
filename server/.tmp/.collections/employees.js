@@ -159,6 +159,18 @@ module.exports = Collection({
         "relationSideName": "employee",
         "self": false,
         "selfName": "employee"
+    }, {
+        "name": "planning",
+        "type": "relationship",
+        "linked": false,
+        "relationTo": "planning",
+        "hasMany": false,
+        "unique": false,
+        "relationType": "many-to-one",
+        "onSideRelation": true,
+        "relationSideName": "employees",
+        "self": false,
+        "selfName": "employees"
     }],
     "behavior": "basic"
 })

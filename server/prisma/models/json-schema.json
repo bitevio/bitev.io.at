@@ -553,6 +553,17 @@
             "$ref": "#/definitions/employees"
           }
         },
+        "model": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/timesheets_models"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "timesheets_models"
+        },
         "createdAt": {
           "type": [
             "string",
@@ -771,6 +782,59 @@
         }
       }
     },
+    "timesheets_models": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "timetables": {
+          "type": "array",
+          "originalType": "timetables",
+          "items": {
+            "$ref": "#/definitions/timetables"
+          }
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "plannings": {
+          "type": "array",
+          "originalType": "planning",
+          "items": {
+            "$ref": "#/definitions/planning"
+          }
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
     "timetables": {
       "type": "object",
       "properties": {
@@ -835,6 +899,17 @@
           ],
           "originalType": "Boolean",
           "default": false
+        },
+        "timesheets_model": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/timesheets_models"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "timesheets_models"
         },
         "createdAt": {
           "type": [
@@ -1013,6 +1088,9 @@
     },
     "settings": {
       "$ref": "#/definitions/Settings"
+    },
+    "timesheets_models": {
+      "$ref": "#/definitions/timesheets_models"
     },
     "timetables": {
       "$ref": "#/definitions/timetables"

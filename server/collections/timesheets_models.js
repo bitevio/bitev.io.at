@@ -6,7 +6,7 @@ module.exports = Collection({
     "icon": null,
     "singleType": false,
     "hidden": false,
-    "slug": "planning",
+    "slug": "timesheets_models",
     "mode": "model",
     "timestamps": true,
     "behavior": "basic",
@@ -19,7 +19,7 @@ module.exports = Collection({
         "endField": ""
     },
     "admin": {
-        "label": "Planning",
+        "label": "Timesheets models",
         "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
@@ -54,103 +54,10 @@ module.exports = Collection({
             "prefix": null
         }
     }, {
-        "name": "code",
-        "type": "string",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": true,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Code",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
-        }
-    }, {
-        "name": "start_date",
-        "type": "date",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "Start date",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
-        }
-    }, {
-        "name": "end_date",
-        "type": "date",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "${item.id}",
-            "mapLabel": "",
-            "label": "End date",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
-        }
-    }, {
-        "name": "employees",
+        "name": "timetables",
         "type": "relationship",
         "options": [],
-        "relationTo": "employees",
+        "relationTo": "timetables",
         "eventsRef": "",
         "eventStartField": "",
         "eventEndField": "",
@@ -162,28 +69,28 @@ module.exports = Collection({
         "relationType": "one-to-many",
         "onSideRelation": false,
         "private": false,
-        "relationSideName": "planning",
+        "relationSideName": "timesheets_model",
         "computedFx": {
             "active": true,
             "fx": null,
             "needs": []
         },
         "admin": {
-            "displayTemplate": "",
+            "displayTemplate": "return `${item.length} Sélectionnés`",
             "mapLabel": "",
-            "label": "Employees",
+            "label": "Timetables",
             "readonly": false,
             "hidden": false,
             "suffix": null,
             "prefix": null
         },
         "self": false,
-        "selfName": "employees"
+        "selfName": "timetables"
     }, {
-        "name": "model",
-        "type": "relationship",
+        "name": "total_time",
+        "type": "computed",
         "options": [],
-        "relationTo": "timesheets_models",
+        "relationTo": "",
         "eventsRef": "",
         "eventStartField": "",
         "eventEndField": "",
@@ -192,10 +99,41 @@ module.exports = Collection({
         "required": false,
         "defaultValue": null,
         "hasMany": false,
-        "relationType": "many-to-one",
+        "relationType": "one-to-many",
         "onSideRelation": false,
         "private": false,
-        "relationSideName": "plannings",
+        "relationSideName": "",
+        "computedFx": {
+            "active": true,
+            "fx": "var total_time = 0;\nfor (let timetable of item.timetables) {\n    total_time += timetable.total_time;\n}\n\nreturn total_time;",
+            "needs": ["timetables"]
+        },
+        "admin": {
+            "displayTemplate": "${item.id}",
+            "mapLabel": "",
+            "label": "Total time",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        }
+    }, {
+        "name": "description",
+        "type": "textarea",
+        "options": [],
+        "relationTo": "",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "one-to-many",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "",
         "computedFx": {
             "active": true,
             "fx": null,
@@ -204,12 +142,22 @@ module.exports = Collection({
         "admin": {
             "displayTemplate": "${item.id}",
             "mapLabel": "",
-            "label": "Model",
+            "label": "Description",
             "readonly": false,
             "hidden": false,
             "suffix": null,
             "prefix": null
-        },
+        }
+    }, {
+        "name": "plannings",
+        "type": "relationship",
+        "linked": false,
+        "relationTo": "planning",
+        "hasMany": true,
+        "unique": false,
+        "relationType": "one-to-many",
+        "onSideRelation": true,
+        "relationSideName": "model",
         "self": false,
         "selfName": "model"
     }]

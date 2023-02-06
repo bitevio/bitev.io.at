@@ -211,6 +211,18 @@ module.exports = Collection({
             "fx": "var gap = item.day_lag;\nvar start = moment(`2023-01-01T${item.start_time}`)\nvar end = moment(`2023-01-01T${item.end_time}`).add(gap, 'days');\nif (!item.included) {\nreturn (end.diff(start, 'hours') )*item.days_of_week.length*(-1);\n}\nreturn (end.diff(start, 'hours') )*item.days_of_week.length;\n",
             "needs": ["start_time", "end_time", "day_lag", "days_of_week", "included"]
         }
+    }, {
+        "name": "timesheets_model",
+        "type": "relationship",
+        "linked": false,
+        "relationTo": "timesheets_models",
+        "hasMany": false,
+        "unique": false,
+        "relationType": "many-to-one",
+        "onSideRelation": true,
+        "relationSideName": "timetables",
+        "self": false,
+        "selfName": "timetables"
     }],
     "behavior": "basic"
 })

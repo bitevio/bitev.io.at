@@ -120,7 +120,10 @@
       code String?     @unique
       start_date String?     
       end_date String?     
-      employees employees[]      
+      employees employees[]     
+      model timesheets_models?    @relation(fields:[modelId],references:[id])
+             modelId String? @db.ObjectId 
+                
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }
@@ -159,6 +162,16 @@
       updatedAt DateTime? @updatedAt
    }
     
+    model timesheets_models {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      name String?     
+      timetables timetables[]     
+      description String?     
+      plannings planning[]      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
     model timetables {
       id String @id @default(auto()) @map("_id") @db.ObjectId
       name String?     
@@ -167,7 +180,10 @@
       start_time String?     
       end_time String?     
       day_lag Float?   @default(0)  
-      included Boolean?   @default(false)   
+      included Boolean?   @default(false)  
+      timesheets_model timesheets_models?    @relation(fields:[timesheets_modelId],references:[id])
+             timesheets_modelId String? @db.ObjectId 
+                
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }

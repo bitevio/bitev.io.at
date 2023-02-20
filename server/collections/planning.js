@@ -151,36 +151,68 @@ module.exports = Collection({
         "self": false,
         "selfName": "model"
     }, {
+        "admin": {
+            "label": "Expired",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
         "name": "expired",
         "type": "computed",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
             "active": true,
             "fx": "return moment().isAfter(item.end_date) || false",
             "needs": ["start_date", "end_date"]
-        },
+        }
+    }, {
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
-            "label": "Expired",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
-        }
+            "required": false
+        },
+        "name": "controls",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": true,
+        "relationTo": "controls",
+        "linked": false,
+        "required": false,
+        "relationType": "one-to-many",
+        "relationSideName": "planning",
+        "private": false,
+        "onSideRelation": true,
+        "self": false,
+        "selfName": "planning"
+    }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
+        "name": "events",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": true,
+        "relationTo": "events",
+        "linked": false,
+        "required": false,
+        "relationType": "one-to-many",
+        "relationSideName": "planning",
+        "private": false,
+        "onSideRelation": true,
+        "self": false,
+        "selfName": "planning"
     }],
     "behavior": "basic"
 })

@@ -150,6 +150,53 @@ module.exports = Collection({
         },
         "self": false,
         "selfName": "model"
+    }, {
+        "admin": {
+            "label": "Expired",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "expired",
+        "type": "computed",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true,
+            "fx": "return moment().isAfter(item.end_date) || false",
+            "needs": ["start_date", "end_date"]
+        }
+    }, {
+        "name": "controls",
+        "type": "relationship",
+        "linked": false,
+        "relationTo": "controls",
+        "hasMany": true,
+        "unique": false,
+        "relationType": "one-to-many",
+        "onSideRelation": true,
+        "relationSideName": "planning",
+        "self": false,
+        "selfName": "planning"
+    }, {
+        "name": "events",
+        "type": "relationship",
+        "linked": false,
+        "relationTo": "events",
+        "hasMany": true,
+        "unique": false,
+        "relationType": "one-to-many",
+        "onSideRelation": true,
+        "relationSideName": "planning",
+        "self": false,
+        "selfName": "planning"
     }],
     "behavior": "basic"
 })

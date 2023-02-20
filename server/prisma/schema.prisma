@@ -47,7 +47,11 @@
                
       function_code function_codes?    @relation(fields:[function_codeId],references:[id])
              function_codeId String? @db.ObjectId 
-                
+               
+      planning planning?    @relation(fields:[planningId],references:[id])
+             planningId String? @db.ObjectId 
+               
+      details Json?      
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }
@@ -65,7 +69,8 @@
       name String?     
       code Float?     
       password String?     
-      controls controls[]      
+      controls controls[]     
+      imei String?      
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }
@@ -81,6 +86,17 @@
       email String?     @unique
       password String?     
       controls controls[]     
+      planning planning?    @relation(fields:[planningId],references:[id])
+             planningId String? @db.ObjectId 
+                
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
+    model events {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      start_datetime String?     
+      end_datetime String?     
       planning planning?    @relation(fields:[planningId],references:[id])
              planningId String? @db.ObjectId 
                 
@@ -123,7 +139,9 @@
       employees employees[]     
       model timesheets_models?    @relation(fields:[modelId],references:[id])
              modelId String? @db.ObjectId 
-                
+               
+      controls controls[]     
+      events events[]      
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }

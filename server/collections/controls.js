@@ -141,6 +141,52 @@ module.exports = Collection({
         },
         "self": false,
         "selfName": "function_code"
+    }, {
+        "admin": {
+            "label": "Planning",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "planning",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "planning",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "controls",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        },
+        "self": false,
+        "selfName": "planning"
+    }, {
+        "admin": {
+            "label": "Details",
+            "sortable": false,
+            "readonly": true,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "details",
+        "type": "json",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        }
     }],
     "behavior": "basic"
 })

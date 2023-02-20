@@ -148,6 +148,28 @@
           ],
           "originalType": "function_codes"
         },
+        "planning": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/planning"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "planning"
+        },
+        "details": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ],
+          "originalType": "Json"
+        },
         "createdAt": {
           "type": [
             "string",
@@ -240,6 +262,13 @@
             "$ref": "#/definitions/controls"
           }
         },
+        "imei": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
         "createdAt": {
           "type": [
             "string",
@@ -324,6 +353,56 @@
           "items": {
             "$ref": "#/definitions/controls"
           }
+        },
+        "planning": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/planning"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "planning"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
+    "events": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "start_datetime": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "end_datetime": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
         },
         "planning": {
           "anyOf": [
@@ -563,6 +642,20 @@
             }
           ],
           "originalType": "timesheets_models"
+        },
+        "controls": {
+          "type": "array",
+          "originalType": "controls",
+          "items": {
+            "$ref": "#/definitions/controls"
+          }
+        },
+        "events": {
+          "type": "array",
+          "originalType": "events",
+          "items": {
+            "$ref": "#/definitions/events"
+          }
         },
         "createdAt": {
           "type": [
@@ -1070,6 +1163,9 @@
     },
     "employees": {
       "$ref": "#/definitions/employees"
+    },
+    "events": {
+      "$ref": "#/definitions/events"
     },
     "function_codes": {
       "$ref": "#/definitions/function_codes"

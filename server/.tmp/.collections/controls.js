@@ -141,6 +141,70 @@ module.exports = Collection({
         },
         "self": false,
         "selfName": "function_code"
+    }, {
+        "name": "planning",
+        "type": "relationship",
+        "options": [],
+        "relationTo": "planning",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "many-to-one",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "controls",
+        "computedFx": {
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Planning",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        },
+        "self": false,
+        "selfName": "planning"
+    }, {
+        "name": "details",
+        "type": "json",
+        "options": [],
+        "relationTo": "",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "one-to-many",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "",
+        "computedFx": {
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Details",
+            "readonly": true,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        }
     }],
     "behavior": "basic"
 })

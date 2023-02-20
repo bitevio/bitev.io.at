@@ -142,68 +142,50 @@ module.exports = Collection({
         "self": false,
         "selfName": "function_code"
     }, {
-        "name": "planning",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "planning",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "controls",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Planning",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "planning",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "planning",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "controls",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "planning"
     }, {
-        "name": "details",
-        "type": "json",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Details",
+            "sortable": false,
             "readonly": true,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "details",
+        "type": "json",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         }
     }],
     "behavior": "basic"

@@ -10,8 +10,8 @@ module.exports = Collection({
     "slug": "devices",
     "timestamps": true,
     "auth": {
-        "enabled": false,
-        "by": "email"
+        "enabled": true,
+        "by": "code"
     },
     "admin": {
         "label": "Devices",
@@ -100,6 +100,37 @@ module.exports = Collection({
         "onSideRelation": true,
         "self": false,
         "selfName": "device"
+    }, {
+        "name": "imei",
+        "type": "string",
+        "options": [],
+        "relationTo": "",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "one-to-many",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "",
+        "computedFx": {
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Imei",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        }
     }],
     "behavior": "basic"
 })

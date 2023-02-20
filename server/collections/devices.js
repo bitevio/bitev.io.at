@@ -131,6 +131,39 @@ module.exports = Collection({
             "suffix": null,
             "prefix": null
         }
+    }, {
+        "name": "role",
+        "type": "relationship",
+        "options": [],
+        "relationTo": "Roles",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "many-to-one",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "devices",
+        "computedFx": {
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Role",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        },
+        "self": false,
+        "selfName": "role"
     }],
     "behavior": "basic"
 })

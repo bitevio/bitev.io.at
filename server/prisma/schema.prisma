@@ -70,7 +70,10 @@
       code Float?     
       password String?     
       controls controls[]     
-      imei String?      
+      imei String?     
+      role Roles?    @relation(fields:[roleId],references:[id])
+             roleId String? @db.ObjectId 
+                
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }
@@ -161,7 +164,8 @@
       name String?     @unique
       description String?     
       permissions Json?     
-      employees employees[]      
+      employees employees[]     
+      devices devices[]      
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }

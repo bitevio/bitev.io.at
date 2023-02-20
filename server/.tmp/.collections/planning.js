@@ -174,27 +174,43 @@ module.exports = Collection({
             "needs": ["start_date", "end_date"]
         }
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "controls",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "controls",
-        "hasMany": true,
         "unique": false,
+        "hasMany": true,
+        "relationTo": "controls",
+        "linked": false,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": true,
         "relationSideName": "planning",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "planning"
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "events",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "events",
-        "hasMany": true,
         "unique": false,
+        "hasMany": true,
+        "relationTo": "events",
+        "linked": false,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": true,
         "relationSideName": "planning",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "planning"
     }],

@@ -269,6 +269,17 @@
           ],
           "originalType": "String"
         },
+        "role": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Roles"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "Roles"
+        },
         "createdAt": {
           "type": [
             "string",
@@ -765,6 +776,13 @@
           "originalType": "employees",
           "items": {
             "$ref": "#/definitions/employees"
+          }
+        },
+        "devices": {
+          "type": "array",
+          "originalType": "devices",
+          "items": {
+            "$ref": "#/definitions/devices"
           }
         },
         "createdAt": {

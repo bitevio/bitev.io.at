@@ -3,119 +3,87 @@ const {
 } = require("bitev.io/types");
 
 module.exports = Collection({
-    "icon": null,
+    "activeTask": false,
     "singleType": false,
     "hidden": false,
-    "slug": "events",
     "mode": "model",
+    "slug": "events",
     "timestamps": true,
-    "behavior": "basic",
     "auth": {
         "enabled": false,
         "by": "email"
-    },
-    "calendar": {
-        "startField": "",
-        "endField": ""
     },
     "admin": {
         "label": "Events",
         "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
+        "admin": {
+            "label": "Start datetime",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
         "name": "start_datetime",
         "type": "datetime-local",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
-            "label": "Start datetime",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
+        "admin": {
+            "label": "End datetime",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
         "name": "end_datetime",
         "type": "datetime-local",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
-            "label": "End datetime",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
-        "name": "planning",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "planning",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "events",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Planning",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "planning",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "planning",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "events",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "planning"
-    }]
+    }],
+    "behavior": "basic"
 })

@@ -101,36 +101,51 @@ module.exports = Collection({
         "self": false,
         "selfName": "device"
     }, {
-        "name": "imei",
-        "type": "string",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "one-to-many",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Imei",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "imei",
+        "type": "string",
+        "unique": false,
+        "hasMany": false,
+        "linked": true,
+        "required": false,
+        "relationType": "one-to-many",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         }
+    }, {
+        "admin": {
+            "label": "Role",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "role",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "Roles",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "devices",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
+        },
+        "self": false,
+        "selfName": "role"
     }],
     "behavior": "basic"
 })

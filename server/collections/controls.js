@@ -18,27 +18,37 @@ module.exports = Collection({
         "timestampsFormat": "YY-MM-DD ,HH:mm:ss a"
     },
     "fields": [{
-        "admin": {
-            "label": "Employee",
-            "sortable": false,
-            "readonly": false,
-            "hidden": false,
-            "required": false,
-            "displayTemplate": "return item.id"
-        },
         "name": "employee",
         "type": "relationship",
-        "unique": false,
-        "hasMany": false,
+        "options": [],
         "relationTo": "employees",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
         "linked": true,
+        "unique": false,
         "required": false,
+        "defaultValue": null,
+        "hasMany": false,
         "relationType": "many-to-one",
-        "relationSideName": "controls",
-        "private": false,
         "onSideRelation": false,
+        "private": false,
+        "relationSideName": "controls",
         "computedFx": {
-            "active": true
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return `${item?.first_name} ${item?.last_name}`",
+            "mapLabel": "",
+            "label": "Employee",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null,
+            "sortable": false,
+            "required": false
         },
         "self": false,
         "selfName": "employee"
@@ -92,27 +102,37 @@ module.exports = Collection({
             "active": true
         }
     }, {
-        "admin": {
-            "label": "Device",
-            "sortable": false,
-            "readonly": false,
-            "hidden": false,
-            "required": false,
-            "displayTemplate": "return item.id"
-        },
         "name": "device",
         "type": "relationship",
-        "unique": false,
-        "hasMany": false,
+        "options": [],
         "relationTo": "devices",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
         "linked": true,
+        "unique": false,
         "required": false,
+        "defaultValue": null,
+        "hasMany": false,
         "relationType": "many-to-one",
-        "relationSideName": "controls",
-        "private": false,
         "onSideRelation": false,
+        "private": false,
+        "relationSideName": "controls",
         "computedFx": {
-            "active": true
+            "active": true,
+            "fx": null,
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.name",
+            "mapLabel": "",
+            "label": "Device",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null,
+            "sortable": false,
+            "required": false
         },
         "self": false,
         "selfName": "device"

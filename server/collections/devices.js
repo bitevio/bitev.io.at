@@ -101,66 +101,48 @@ module.exports = Collection({
         "self": false,
         "selfName": "device"
     }, {
+        "admin": {
+            "label": "Imei",
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
         "name": "imei",
         "type": "string",
-        "options": [],
-        "relationTo": "",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
         "unique": false,
-        "required": false,
-        "defaultValue": null,
         "hasMany": false,
+        "linked": true,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": false,
         "private": false,
-        "relationSideName": "",
+        "onSideRelation": false,
         "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
-        "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
-            "label": "Imei",
-            "readonly": false,
-            "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "active": true
         }
     }, {
-        "name": "role",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "Roles",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "devices",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.id",
-            "mapLabel": "",
             "label": "Role",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null
+            "required": false,
+            "displayTemplate": "return item.id"
+        },
+        "name": "role",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "Roles",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "devices",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "role"

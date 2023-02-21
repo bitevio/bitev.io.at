@@ -82,15 +82,23 @@ module.exports = Collection({
         "self": false,
         "selfName": "role"
     }, {
+        "admin": {
+            "sortable": false,
+            "readonly": false,
+            "hidden": false,
+            "required": false
+        },
         "name": "devices",
         "type": "relationship",
-        "linked": false,
-        "relationTo": "devices",
-        "hasMany": true,
         "unique": false,
+        "hasMany": true,
+        "relationTo": "devices",
+        "linked": false,
+        "required": false,
         "relationType": "one-to-many",
-        "onSideRelation": true,
         "relationSideName": "role",
+        "private": false,
+        "onSideRelation": true,
         "self": false,
         "selfName": "role"
     }]

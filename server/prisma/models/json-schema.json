@@ -90,6 +90,52 @@
         }
       }
     },
+    "centre": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "originalType": "String"
+        },
+        "libelle": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "devices": {
+          "type": "array",
+          "originalType": "devices",
+          "items": {
+            "$ref": "#/definitions/devices"
+          }
+        },
+        "employees": {
+          "type": "array",
+          "originalType": "employees",
+          "items": {
+            "$ref": "#/definitions/employees"
+          }
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "DateTime",
+          "format": "date-time"
+        }
+      }
+    },
     "controls": {
       "type": "object",
       "properties": {
@@ -280,6 +326,17 @@
           ],
           "originalType": "Roles"
         },
+        "centre": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/centre"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "centre"
+        },
         "createdAt": {
           "type": [
             "string",
@@ -375,6 +432,24 @@
             }
           ],
           "originalType": "planning"
+        },
+        "contact": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String"
+        },
+        "centre": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/centre"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "originalType": "centre"
         },
         "createdAt": {
           "type": [
@@ -1169,6 +1244,9 @@
     },
     "marketplaces_local": {
       "$ref": "#/definitions/marketplaces_local"
+    },
+    "centre": {
+      "$ref": "#/definitions/centre"
     },
     "controls": {
       "$ref": "#/definitions/controls"

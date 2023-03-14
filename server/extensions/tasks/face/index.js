@@ -14,7 +14,7 @@ module.exports = async ({ api, task, services, state }) => {
   
      async function sync() {
 
-          var descriptors = await services.faceapi.getDescriptors(api).then(e => e).catch(err => {
+     var descriptors = await services.faceapi.getDescriptors(api).then(e => e).catch(err => {
           return []
      })
           state.descriptors = descriptors

@@ -4,6 +4,7 @@
     provider = "prisma-client-js"
     previewFeatures=["clientExtensions"]
   }
+
   generator jsonSchema {
     provider = "prisma-json-schema-generator"
    // keepRelationScalarFields = "true"
@@ -35,6 +36,15 @@
 
 
   
+    model centre {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+      libelle String?     
+      devices devices[]     
+      employees employees[]      
+      createdAt DateTime? @default(now()) 
+      updatedAt DateTime? @updatedAt
+   }
+    
     model controls {
       id String @id @default(auto()) @map("_id") @db.ObjectId
       employee employees?    @relation(fields:[employeeId],references:[id])
@@ -73,6 +83,9 @@
       imei String?     
       role Roles?    @relation(fields:[roleId],references:[id])
              roleId String? @db.ObjectId 
+               
+      centre centre?    @relation(fields:[centreId],references:[id])
+             centreId String? @db.ObjectId 
                 
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
@@ -91,6 +104,10 @@
       controls controls[]     
       planning planning?    @relation(fields:[planningId],references:[id])
              planningId String? @db.ObjectId 
+               
+      contact String?     
+      centre centre?    @relation(fields:[centreId],references:[id])
+             centreId String? @db.ObjectId 
                 
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt

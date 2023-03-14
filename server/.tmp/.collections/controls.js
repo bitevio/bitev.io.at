@@ -24,7 +24,7 @@ module.exports = Collection({
             "readonly": false,
             "hidden": false,
             "required": false,
-            "displayTemplate": "return item.id"
+            "displayTemplate": "return `${item?.first_name} ${item?.last_name}`"
         },
         "name": "employee",
         "type": "relationship",
@@ -92,37 +92,27 @@ module.exports = Collection({
             "active": true
         }
     }, {
-        "name": "device",
-        "type": "relationship",
-        "options": [],
-        "relationTo": "devices",
-        "eventsRef": "",
-        "eventStartField": "",
-        "eventEndField": "",
-        "linked": true,
-        "unique": false,
-        "required": false,
-        "defaultValue": null,
-        "hasMany": false,
-        "relationType": "many-to-one",
-        "onSideRelation": false,
-        "private": false,
-        "relationSideName": "controls",
-        "computedFx": {
-            "active": true,
-            "fx": null,
-            "needs": []
-        },
         "admin": {
-            "displayTemplate": "return item.name",
-            "mapLabel": "",
             "label": "Device",
+            "sortable": false,
             "readonly": false,
             "hidden": false,
-            "suffix": null,
-            "prefix": null,
-            "sortable": false,
-            "required": false
+            "required": false,
+            "displayTemplate": "return item.name"
+        },
+        "name": "device",
+        "type": "relationship",
+        "unique": false,
+        "hasMany": false,
+        "relationTo": "devices",
+        "linked": true,
+        "required": false,
+        "relationType": "many-to-one",
+        "relationSideName": "controls",
+        "private": false,
+        "onSideRelation": false,
+        "computedFx": {
+            "active": true
         },
         "self": false,
         "selfName": "device"

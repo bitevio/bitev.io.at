@@ -146,6 +146,39 @@ module.exports = Collection({
         },
         "self": false,
         "selfName": "role"
+    }, {
+        "name": "centre",
+        "type": "relationship",
+        "options": [],
+        "relationTo": "centre",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "many-to-one",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "devices",
+        "computedFx": {
+            "active": true,
+            "fx": "return ;",
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Centre",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        },
+        "self": false,
+        "selfName": "centre"
     }],
     "behavior": "basic"
 })

@@ -187,6 +187,37 @@ module.exports = Collection({
         "onSideRelation": true,
         "self": false,
         "selfName": "employees"
+    }, {
+        "name": "contact",
+        "type": "string",
+        "options": [],
+        "relationTo": "",
+        "eventsRef": "",
+        "eventStartField": "",
+        "eventEndField": "",
+        "linked": true,
+        "unique": false,
+        "required": false,
+        "defaultValue": null,
+        "hasMany": false,
+        "relationType": "one-to-many",
+        "onSideRelation": false,
+        "private": false,
+        "relationSideName": "",
+        "computedFx": {
+            "active": true,
+            "fx": "return ;",
+            "needs": []
+        },
+        "admin": {
+            "displayTemplate": "return item.id",
+            "mapLabel": "",
+            "label": "Contact",
+            "readonly": false,
+            "hidden": false,
+            "suffix": null,
+            "prefix": null
+        }
     }],
     "behavior": "basic"
 })

@@ -9,8 +9,8 @@ module.exports = ({ api, task, services, state }) => {
     //           sync()
     //      }
    //  })
-  sync()
-  
+ // sync()
+
    function sync() {
      services.faceapi.getDescriptors(api).then(e => {
           state.descriptors = descriptors

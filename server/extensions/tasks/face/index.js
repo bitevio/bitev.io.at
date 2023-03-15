@@ -6,18 +6,19 @@ module.exports = async ({ api, task, services, state }) => {
           ignoreInitial:true
      }).on("all", (event, path) => {
           
-          if (path.match(/(jpeg|jpg)/)) {
+          if (path.match(/(jpeg|jpg|png)/)) {
                sync()
           }
      })
      sync()
   
-     async function sync() {
-
-     var descriptors = await services.faceapi.getDescriptors(api).then(e => e).catch(err => {
-          return []
-     })
+     function sync() {
+     services.faceapi.getDescriptors(api).then(e => {
           state.descriptors = descriptors
           console.log('Update all faces descriptors ')
+     }).catch(err => {
+          return []
+     })
+          
     }
 };

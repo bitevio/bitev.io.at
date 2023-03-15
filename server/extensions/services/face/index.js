@@ -26,7 +26,7 @@ async function init(bitev) {
           .catch((err) => []);
 
 
-          console.log('Personnelles is ',personnelles)
+          console.log('Recreate descriptor ')
         
         
 

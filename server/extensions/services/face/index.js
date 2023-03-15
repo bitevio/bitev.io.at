@@ -14,9 +14,9 @@ async function init(bitev) {
   var model_url = process.cwd() + "/models";
   var img_path = process.cwd() + "/uploads/";
        await Promise.all([
-         faceapi.nets.ssdMobilenetv1.loadFromDisk(model_url),
+        // faceapi.nets.ssdMobilenetv1.loadFromDisk(model_url),
          faceapi.nets.tinyFaceDetector.loadFromDisk(model_url),
-         faceapi.nets.faceExpressionNet.loadFromDisk(model_url),
+        faceapi.nets.faceExpressionNet.loadFromDisk(model_url),
          faceapi.nets.faceLandmark68Net.loadFromDisk(model_url),
          faceapi.nets.faceRecognitionNet.loadFromDisk(model_url),
        ]);

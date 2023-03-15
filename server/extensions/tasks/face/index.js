@@ -1,6 +1,6 @@
 const chokidar = require('chokidar');
 
-module.exports = async ({ api, task, services, state }) => {
+module.exports = ({ api, task, services, state }) => {
      const path = process.cwd() + '/uploads/*'
      chokidar.watch(path, {
           ignoreInitial:true

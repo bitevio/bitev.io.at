@@ -1,6 +1,6 @@
 const {
     Collection
-} = require("bitev.io/types");
+} = require("@bitev.io/core/types");
 
 module.exports = Collection({
     "icon": null,

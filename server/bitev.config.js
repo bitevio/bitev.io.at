@@ -1,4 +1,4 @@
-const Bitev = require("bitev.io");
+const Bitev = require("@bitev.io/core");
 const bitev = new Bitev();
 
 

@@ -1,0 +1,275 @@
+// app global css in SCSS form
+
+
+
+*,body,html,#app{
+    font-family: 'Space Grotesk';
+    .cadran-ui {
+      box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.11), 0 0px 0px 0 rgba(0, 0, 0, 0.1);
+    
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      border: 1px dotted rgba(255, 255, 255, 0.349);
+      border-radius: 15px;
+      height: 38vh;
+      transform: translate(-50%, -50%);
+      width: 65vw;
+      visibility: visible;
+    }
+    
+    
+
+    canvas {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+    }
+  
+  
+    .video-full{
+  
+      z-index: 0;
+      height: 100vh;
+      position: fixed;
+      background-color: black;
+      top:0;
+  
+  
+    }
+
+
+    .workspace{
+
+
+  
+      background-size: 30px 30px;
+      background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+     
+    
+
+    }
+
+    fieldset{
+      border: 0.05px solid rgba(128, 128, 128, 0.328);
+     // -moz-border-radius:5px;  
+      border-radius: 5px;  
+    //  -webkit-border-radius: 5px; //edit :D
+
+    legend{
+      padding-left:10px;
+      padding-right: 10px;
+    }
+    }
+
+    #model .q-field__inner{
+
+     max-width: 420px;
+    }
+
+    .mini{
+      max-width: 250px;
+    }
+
+    #jsoneditor{
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1), 0 0px 0px 0 rgba(0, 0, 0, 0.1);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      height: 100%;
+}
+
+    .wrap{
+    white-space: pre;
+    }
+
+    .ghost {
+      opacity: 0.1;
+      background: #6b6b6b;
+      border-radius: 1%;
+      -webkit-border-radius: 1%;
+      -moz-border-radius: 1%;
+      -ms-border-radius: 1%;
+      -o-border-radius: 1%;
+}
+    .no-move {
+      transition: transform 0s;
+    }
+    .flip-list-move, /* apply transition to moving elements */
+    .flip-list-enter-active,
+    .flip-list-leave-active {
+      transition: all 0.5s ease;
+    }
+
+    .flip-list-enter-from,
+    .flip-list-leave-to {
+      opacity: 0;
+      //transform: translateX(30px);
+    }
+
+    /* ensure leaving items are taken out of layout flow so that moving
+       animations can be calculated correctly. */
+    .list-leave-active {
+      position: absolute;
+    }
+
+
+
+
+    .q-table thead, .q-table th {
+      border-color: rgba(0, 0, 0, 0.12);
+      font-weight: bold;
+  }
+
+  .q-select__dialog{
+
+
+
+  }
+
+
+    .ui.table {
+      width: 100%;
+      background: #fff;
+      margin: 1em 0;
+      border: 1px solid rgba(34,36,38,.15);
+      box-shadow: none;
+      border-radius: 0.28571429rem;
+      text-align: left;
+      color: rgba(0,0,0,.87);
+      border-collapse: separate;
+      border-spacing: 0;
+  }
+
+  .calendar
+  {
+
+    td{
+      padding: 0;
+      height: 65px;
+      margin: 0;
+    }
+  }
+
+  .table-ui{
+
+    thead tr td{
+      font-size: 1px;
+    }
+  
+    thead tr:first-child{
+  
+  
+      background: rgb(251, 251, 251);
+    }
+  
+    tbody tr:nth-child(even){
+      background: #f9fafb;
+    }
+  
+    tbody td:first-child{
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: white;
+    }
+  
+    tbody td:last-child{
+      position: sticky;
+      right: 0;
+      background: white;
+    }
+  
+    thead tr th:first-child{
+      position: sticky;
+      background: white;
+      left: 0;
+      z-index: 10;
+  
+    }
+  
+    thead tr th:first-child{
+      position: sticky;
+  
+      left: 0;
+      background: white;
+    }
+  
+  
+    thead tr th:last-child{
+      position: sticky;
+      width: 150px;
+      right: 0;
+      background: white;
+    }
+  
+   thead tr th{
+    position: sticky;
+    z-index:10
+   }
+  
+   thead tr:first-child th {
+  
+   top: 0;
+   }
+  
+  
+    td {
+  
+     max-width: 200px;
+     overflow-wrap:break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+     }
+
+  }
+
+
+    .bg-lite{
+        background-color: #f6f6f6ca;
+
+
+    }
+
+    .bg-lite-mini{
+      background-color: #f6f6f693;
+
+
+  }
+
+    .bg-moon{
+      background-color: #dfdfdf81;
+
+    }
+
+    .box {
+
+        box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.11), 0 0px 0px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .box-mini {
+
+        box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.07), 0 0px 0px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      #jsonc {
+            /* define a custom theme color */
+            --jse-theme-color: #383e42;
+            --jse-theme-color-highlight: #687177;
+          }
+
+}
+

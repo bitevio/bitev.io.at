@@ -1,5 +1,4 @@
 import {Bitev} from "bitev.io.js"
-console.log(process.env)
 import {reactive,ref ,onMounted} from "vue"
 import  { useSession } from "../stores/session"
 const descriptors =ref(null)

@@ -33,7 +33,7 @@
           </div>
           <div v-else>
             <q-virtual-scroll
-              style="height: 78vh"
+              style="height: 80vh"
               :items="state.items"
               v-slot="{ item, index }"
               separator=""

@@ -20,10 +20,16 @@
       </q-card-actions>
       <q-card-section id="section" style="height: 65vh" class="scroll">
         <div class="hidden">
-          <van-uploader v-model="state.img" :max-count="1" ref="pick"></van-uploader>
+          <van-uploader
+            capture=""
+            v-model="state.img"
+            :max-count="1"
+            ref="pick"
+          ></van-uploader>
         </div>
         <q-inner-loading class="fit" :showing="state.isReady">
-          <q-spinner-gears size="50px" color="primary" />
+          <q-spinner-ios size="50px" color="primary" />
+          <p>Chargement ....</p>
         </q-inner-loading>
         <div style="height: 50vh" class="relative-position scroll text-center">
           <img
@@ -47,7 +53,9 @@
       </q-card-section>
       <q-card-actions class="q-pa-md bg-white text-white">
         <div class="fit text-center q-gutter-md">
+          {{ state.loading }} mmm
           <q-btn
+            :disable="state.isReady ? true : false"
             @click="selectPhoto()"
             color="primary"
             class="fit"
@@ -100,6 +108,9 @@ onMounted(async () => {
   state.isReady = true;
   await Init();
   state.isReady = false;
+  setTimeout(() => {
+    pick.value.chooseFile();
+  }, 200);
 });
 
 function selectPhoto() {

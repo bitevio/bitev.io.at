@@ -6,11 +6,11 @@
   "author": "bitevio <110330048+bitevio@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "cp:env":"cp .env .env.prod",
+    "cp:env": "cp .env .env.prod",
     "build:prod": "dotenv -e .env.prod quasar build",
     "build": "quasar build",
     "dev": "quasar dev",
-    "dev:local":"dotenv -e .env.prod quasar dev",
+    "dev:local": "dotenv -e .env.prod quasar dev",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "downloadjs": "^1.4.7",
     "face-api.js": "^0.22.2",
     "filesize": "^10.0.5",
+    "fuse.js": "^6.6.2",
     "generate-unique-id": "^2.0.1",
     "highlight.js": "10.0.0",
     "html-to-text": "^9.0.0",

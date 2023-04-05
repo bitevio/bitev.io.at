@@ -20,7 +20,7 @@
           {{ state.items.length }} trouvés
         </q-toolbar>
         <div class="q-pa-sm">
-          <q-input dense outlined="" label="Rechercher">
+          <q-input v-model="state.search" dense outlined="" label="Rechercher">
             <template #prepend>
               <q-icon name="mdi-magnify"> </q-icon>
             </template>
@@ -90,7 +90,13 @@
         </div>
 
         <q-page-sticky :offset="[18, 18]" position="bottom-right">
-          <q-btn @click="openAdd()" color="primary" fab icon="mdi-plus"></q-btn>
+          <q-btn
+            label="Ajouter"
+            style="border-radius: 15px"
+            @click="openAdd()"
+            color="primary"
+            icon="mdi-plus"
+          ></q-btn>
         </q-page-sticky>
       </q-page>
     </q-page-container>
@@ -105,17 +111,25 @@ meta:
 import { bitev } from "../../sdk";
 import { reactive, onMounted, watch } from "vue";
 import moment from "moment";
+import Fuse from "fuse.js";
 import add from "../../components/utils/addUser.vue";
 import { useQuasar, useDialogPluginComponent } from "quasar";
 import { useSession } from "stores/session";
 const $store = useSession();
 const $q = useQuasar();
+
 const state = reactive({
+  search: null,
   emptyfaciale: false,
   loading: false,
   items: [],
   rws: [],
 });
+
+watch(
+  () => state.search,
+  () => serachOn()
+);
 
 watch(
   () => state.emptyfaciale,
@@ -131,6 +145,19 @@ watch(
 onMounted(() => {
   Sync();
 });
+
+function serachOn() {
+  if (!state.search) {
+    state.items = state.rws;
+    return;
+  }
+  const fuse = new Fuse(state.rws, {
+    keys: ["fist_name", "last_name", "contact"],
+  });
+
+  var items = fuse.search(state.search);
+  state.items = items.map((found) => found.item);
+}
 
 async function Sync() {
   state.loading = true;

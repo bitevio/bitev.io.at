@@ -61,7 +61,7 @@
             class="fit"
             label="Capturer"
             unelevated
-            icon="las la-portrait"
+            icon="las la-camera"
           ></q-btn>
         </div>
       </q-card-actions>

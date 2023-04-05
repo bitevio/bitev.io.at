@@ -11,6 +11,7 @@
     "update": "npx bitev.io@latest update"
   },
   "dependencies": {
+    "@bitev.io/core": "^2.2.34",
     "@tensorflow/tfjs-node": "^4.2.0",
     "@vladmandic/face-api": "^1.7.9",
     "bitev.io": "^2.2.15",

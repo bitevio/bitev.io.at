@@ -1,95 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "Insights": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "originalType": "String"
-        },
-        "active": {
-          "type": [
-            "boolean",
-            "null"
-          ],
-          "originalType": "Boolean",
-          "default": false
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "originalType": "String"
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "originalType": "String"
-        },
-        "views": {
-          "type": [
-            "number",
-            "string",
-            "boolean",
-            "object",
-            "array",
-            "null"
-          ],
-          "originalType": "Json"
-        },
-        "icon": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "originalType": "String"
-        },
-        "createdAt": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "originalType": "DateTime",
-          "format": "date-time"
-        },
-        "updatedAt": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "originalType": "DateTime",
-          "format": "date-time"
-        }
-      }
-    },
-    "marketplaces_local": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "originalType": "String"
-        },
-        "key": {
-          "type": "string",
-          "originalType": "String"
-        },
-        "config": {
-          "type": [
-            "number",
-            "string",
-            "boolean",
-            "object",
-            "array",
-            "null"
-          ],
-          "originalType": "Json"
-        }
-      }
-    },
     "centre": {
       "type": "object",
       "properties": {
@@ -657,6 +568,22 @@
             "null"
           ],
           "originalType": "Json"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String",
+          "default": "null"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "originalType": "String",
+          "default": "null"
         },
         "createdAt": {
           "type": [
@@ -1239,12 +1166,6 @@
   },
   "type": "object",
   "properties": {
-    "insights": {
-      "$ref": "#/definitions/Insights"
-    },
-    "marketplaces_local": {
-      "$ref": "#/definitions/marketplaces_local"
-    },
     "centre": {
       "$ref": "#/definitions/centre"
     },

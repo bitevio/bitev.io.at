@@ -17,23 +17,6 @@
     url      = env("DATABASE_URL")
   } 
 
-  model Insights {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    active Boolean?   @default(false)  
-    name String?     @unique
-    description String?     
-    views Json?     
-    icon String?      
-    createdAt DateTime? @default(now()) 
-    updatedAt DateTime? @updatedAt
- }
-
- model marketplaces_local{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  key String @unique
-  config Json? 
- }
-
 
   
     model centre {
@@ -145,7 +128,9 @@
       asseturl String?     
       url String?     
       details Json?     
-      data Json?      
+      data Json?     
+      title String?   @default("null")  
+      description String?   @default("null")   
       createdAt DateTime? @default(now()) 
       updatedAt DateTime? @updatedAt
    }

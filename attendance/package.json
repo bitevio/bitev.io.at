@@ -41,6 +41,7 @@
     "filesize": "^10.0.5",
     "fuse.js": "^6.6.2",
     "generate-unique-id": "^2.0.1",
+    "gsap": "^3.11.5",
     "highlight.js": "10.0.0",
     "html-to-text": "^9.0.0",
     "inflection": "^2.0.0",

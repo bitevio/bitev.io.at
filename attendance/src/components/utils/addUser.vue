@@ -5,6 +5,7 @@
     transition-hide="slide-right"
     maximized
   >
+    <route-behavior></route-behavior>
     <q-card>
       <q-card-actions>
         <q-btn round flat v-close-popup icon="mdi-arrow-left"></q-btn>

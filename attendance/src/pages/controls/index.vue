@@ -2,35 +2,34 @@
   <q-page class="bg-white">
     <q-page-sticky :offset="[20, 20]" position="bottom">
       <div class="q-gutter-sm">
-        <q-smart-reactif v-slot="{ active, toggle, close }">
-          <q-btn @click="toggle()" icon="mdi-menu"></q-btn>
-          <q-dialog full-width="" position="bottom" @hide="close" :model-value="active">
-            <q-card>
-              <q-card-section>
-                <q-list>
-                  <q-item clickable="" to="/controls/users">
-                    <q-item-section avatar>
-                      <q-icon name="mdi-account-group" />
-                    </q-item-section>
-                    <q-item-section> Gestion des utilisateurs</q-item-section>
-                  </q-item>
-                  <q-item @click="init()" v-close-popup clickable="">
-                    <q-item-section avatar>
-                      <q-icon name="mdi-sync" />
-                    </q-item-section>
-                    <q-item-section> Synchroniser</q-item-section>
-                  </q-item>
-                  <q-item @click="logOut()" v-close-popup clickable="">
-                    <q-item-section avatar>
-                      <q-icon name="mdi-power" />
-                    </q-item-section>
-                    <q-item-section> Se déconnecter </q-item-section>
-                  </q-item>
-                </q-list>
-              </q-card-section>
-            </q-card>
-          </q-dialog>
-        </q-smart-reactif>
+        <q-btn @click="state.menu = true" icon="mdi-menu"></q-btn>
+        <q-dialog full-width="" position="bottom" v-model="state.menu">
+          <route-behavior></route-behavior>
+          <q-card>
+            <q-card-section>
+              <q-list>
+                <q-item clickable="" to="/controls/users">
+                  <q-item-section avatar>
+                    <q-icon name="mdi-account-group" />
+                  </q-item-section>
+                  <q-item-section> Gestion des utilisateurs</q-item-section>
+                </q-item>
+                <q-item @click="init()" v-close-popup clickable="">
+                  <q-item-section avatar>
+                    <q-icon name="mdi-sync" />
+                  </q-item-section>
+                  <q-item-section> Synchroniser</q-item-section>
+                </q-item>
+                <q-item @click="logOut()" v-close-popup clickable="">
+                  <q-item-section avatar>
+                    <q-icon name="mdi-power" />
+                  </q-item-section>
+                  <q-item-section> Se déconnecter </q-item-section>
+                </q-item>
+              </q-list>
+            </q-card-section>
+          </q-card>
+        </q-dialog>
       </div>
     </q-page-sticky>
 
@@ -38,9 +37,9 @@
       <div>
         <div style="height: 10vh">
           <div class="q-pt-lg text-center text-bold q-pa-lg">
-          <div class="text-bold text-h5">
-          {{ $store.device.centre?.libelle }}
-          </div>
+            <div class="text-bold text-h5">
+              {{ $store.device.centre?.libelle }}
+            </div>
             <div class="title">
               {{ state.date.day }}
             </div>
@@ -52,7 +51,7 @@
         </div>
       </div>
       <br />
-      <q-tabs  indicator-color="black" v-model="state.tab" center class="fit q-pt-lg">
+      <q-tabs indicator-color="black" v-model="state.tab" center class="fit q-pt-lg">
         <q-tab class="bg-positive text-white" name="arrival" label="Arrivé"></q-tab>
         <q-tab name="departure" class="bg-red text-white" label="Départ"></q-tab>
       </q-tabs>
@@ -118,10 +117,11 @@
 </template>
 
 <script setup>
+import * as faceapi from "face-api.js";
 import facialeCheck from "../../components/faciales/check.vue";
-import 'moment/dist/locale/fr'
+import "moment/dist/locale/fr";
 import moment from "moment";
-moment.locale('fr')
+moment.locale("fr");
 import { reactive, onMounted, onBeforeUnmount } from "vue";
 import { useQuasar } from "quasar";
 import { useSession } from "stores/session";
@@ -129,6 +129,7 @@ import { bitev } from "src/sdk";
 const $q = useQuasar();
 const $store = useSession();
 const state = reactive({
+  menu: false,
   tab: "arrival",
   codes: [],
   controls: [],
@@ -145,8 +146,16 @@ const state = reactive({
 
 onMounted(async () => {
   // await Charge();
-  Sync();
+  $q.loading.show({
+    customClass: "bg-black",
+    backgroundColor: "black",
+    message: "Chargement des données en cours ...",
+    spinnerSize: 20,
+  });
+  await InitRC();
+  await Sync();
   init();
+  $q.loading.hide();
 });
 
 function logOut() {
@@ -178,10 +187,7 @@ async function Charge() {
   // startCamera();
 }
 
-async function Init() {
-  $q.loading.show({
-    spinnerSize: 20,
-  });
+async function InitRC() {
   await Promise.all([
     faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
     faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
@@ -195,20 +201,9 @@ async function Init() {
     .then((e) => {
       console.log(e);
     });
-
-  $q.loading.hide();
-  startCamera();
 }
 
 async function init() {
-  if (!$store.descriptors.length) {
-    $q.loading.show({
-      customClass: "bg-black",
-      backgroundColor: "black",
-      message: "Chargement des données en cours ...",
-      spinnerSize: 20,
-    });
-  }
   state.descriptors = await bitev
     .endpoint("/private/faceapi/descriptors")
     .then((e) => e)
@@ -217,7 +212,6 @@ async function init() {
   console.log("descriptors", state.descriptors);
 
   $store.updateDescriptor(state.descriptors);
-  $q.loading.hide();
 }
 
 onBeforeUnmount(() => {

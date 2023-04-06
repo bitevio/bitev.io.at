@@ -163,9 +163,11 @@ async function Sync() {
   state.loading = true;
   state.items = state.rws = await bitev
     .findMany("employees", {
-      orderBy: {
-        first_name: "asc",
-      },
+      orderBy: [
+        {
+          createdAt: "desc",
+        },
+      ],
       where: {
         centre: {
           id: {

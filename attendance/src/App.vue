@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-dialog v-model="state.openError">
+    <q-dialog class="bg-black" v-model="state.openError">
       <q-card>
         <q-card-actions>
           <q-toolbar-title class="q-ml-sm text-negative text-bold">
@@ -76,14 +76,29 @@
 <script setup>
 import iconSet from "@quasar/quasar-ui-qiconpicker/src/components/icon-set/line-awesome";
 import { bitev } from "./sdk/index";
-import { onErrorCaptured, reactive, onMounted, inject, watch } from "vue";
+import {
+  onErrorCaptured,
+  reactive,
+  onMounted,
+  inject,
+  watch,
+  ref,
+  getCurrentInstance,
+} from "vue";
 import { useQuasar, QSpinnerIos, Dialog } from "quasar";
+
 import { useSession } from "stores/session";
+import { useRouter } from "vue-router";
+import gsap from "gsap";
 import socket from "./boot/socket";
 import errorDialog from "components/utils/errorModal.vue";
+import { useDialogPluginComponent } from "quasar";
 const $q = useQuasar();
 const $store = useSession();
+const { onDialogHide, dialogRef } = useDialogPluginComponent();
+
 const $socket = inject("socket");
+const $router = useRouter();
 const $emitter = inject("emitter");
 const state = reactive({
   ok: false,

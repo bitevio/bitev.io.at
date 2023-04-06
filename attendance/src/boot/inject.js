@@ -25,10 +25,10 @@ import VueHighlightJS from 'vue3-highlightjs'
 import 'highlight.js/styles/dark.css'
 
 import naive from 'naive-ui'
-
+import routeBehavior from "../components/prevent-back.vue"
 export default boot(async ( { app, router}) => {
   // something to do
-
+  app.component('routeBehavior', routeBehavior)
   app.use(naive)
 
  // app.component('draggable',draggable)

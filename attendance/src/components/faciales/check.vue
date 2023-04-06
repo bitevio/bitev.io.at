@@ -36,7 +36,7 @@
 <script setup>
 //import * as tf from "@tensorflow/tfjs";
 import { defineComponent, reactive, ref, onMounted, onBeforeUnmount } from "vue";
-
+import * as faceapi from "face-api.js";
 import res from "./result.vue";
 
 import { useQuasar, useDialogPluginComponent } from "quasar";
@@ -62,8 +62,8 @@ onBeforeUnmount(() => {
 
 onMounted(async () => {
   // return false;
-  await Init();
-  //startCamera();
+  //await Init();
+  startCamera();
   // startWorker();
 });
 

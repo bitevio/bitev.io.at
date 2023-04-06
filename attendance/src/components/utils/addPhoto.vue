@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
 
 onMounted(async () => {
   state.isReady = true;
-  await Init();
+  // await Init();
   state.isReady = false;
   setTimeout(() => {
     pick.value.chooseFile();
